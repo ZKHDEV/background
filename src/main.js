@@ -13,6 +13,13 @@ Vue.use(ElementUI)
 Vue.prototype.$http = axios
 Mock.mockData()
 
+// 页面标题命令
+Vue.directive('title', {
+  inserted: function (el, binding) {
+    document.title = binding.value + ' - 后台管理系统';
+  }
+})
+
 import Table from './components/Table.vue'
 
 const routes = [{

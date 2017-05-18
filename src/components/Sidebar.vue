@@ -11,7 +11,7 @@
                         <el-menu-item index="1">
                             <i class="el-icon-message"></i>导航一</el-menu-item>
                     </router-link>
-                    <router-link to="/">
+                    <router-link to="/table">
                         <el-menu-item index="2">
                             <i class="el-icon-message"></i>导航二</el-menu-item>
                     </router-link>

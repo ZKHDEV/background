@@ -1,6 +1,6 @@
 <template>
-  <div class="table-container">
-    <div class="table-operation">
+  <div class="table-container" v-title="'用户管理'">
+    <div class="table-operation">      
       <el-button type="primary" @click="handleAdd">添加</el-button>
       <el-button type="danger" :disabled="disDelete" @click="handleDeleteSelection">删除所选</el-button>
     </div>
@@ -28,6 +28,7 @@
   
     <v-add ref="add" @submitForm="afterAdd"></v-add>
     <v-edit ref="edit" @submitForm="afterEdit"></v-edit>
+
   </div>
 </template>
 
@@ -41,7 +42,17 @@ export default {
       multipleSelection: [],
       currentPage: 1,
       disDelete: true,
-      loading: false
+      loading: false,
+      form: {
+        title: '',
+        visible: false,
+        action: '',
+        data: {
+          date: new Date(),
+          name: '',
+          address: ''
+        }
+      }
     }
   },
 

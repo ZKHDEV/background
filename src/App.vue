@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="left" class="collapse">
+    <div id="left" :class="{ collapse: isCollapse }">
       <v-sidebar></v-sidebar>
     </div>
-    <div id="right" class="collapse">
+    <div id="right" :class="{ collapse: isCollapse }">
       <v-header :title="title" @toggleMenu="toggleMenu"></v-header>
       <div class="container">
         <div class="card">
@@ -15,19 +15,19 @@
 </template>
 
 <script>
-import $ from 'jquery/dist/jquery.min.js'
 import Sidebar from "./components/Sidebar.vue"
 import Header from "./components/Header.vue"
 export default {
   name: 'app',
   data() {
     return {
-      title: '主页'
+      title: '主页',
+      isCollapse: true
     }
   },
   methods: {
     toggleMenu() {
-      $('#left,#right').toggleClass('collapse');
+      this.isCollapse = !this.isCollapse;
     }
   },
   components: {
@@ -79,6 +79,7 @@ $boxShadow: 0 0 10px 1px rgba(#000000, 0.1);
   bottom: 0;
   left: 0;
   right: 0;
+  overflow-x: hidden;
   overflow-y: auto;
   background-color: #E7EBEE;
   .el-breadcrumb{
