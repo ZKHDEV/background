@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: process.env.NODE_ENV === 'production' ? './dist/' : '/dist/',
-    filename: process.env.NODE_ENV === 'production' ? '[name].js?[chunkhash]' : '[name].js'
+    filename: process.env.NODE_ENV === 'production' ? 'build.js?[chunkhash]' : 'build.js'
   },
   module: {
     rules: [
@@ -29,9 +29,9 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-       {
+      {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!postcss-loader'
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,

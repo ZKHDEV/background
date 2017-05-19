@@ -4,8 +4,14 @@ import App from './App.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import 'font-awesome/css/font-awesome.min.css'
-import axios from 'axios'
 import Mock from './mock/mock'
+
+import axios from 'axios'
+// 解决IE下promise兼容性问题
+import Promise from 'promise-polyfill';
+if (!window.Promise) {
+  window.Promise = Promise;
+}
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
