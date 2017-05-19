@@ -20,15 +20,13 @@ Vue.directive('title', {
   }
 })
 
-import Table from './components/Table.vue'
-
 const routes = [{
   path: '/',
-  component: Table
+  component: resolve => require(['./components/Table.vue'], resolve)
 },
 {
   path: '/table',
-  component: Table
+  component: resolve => require(['./components/Table.vue'], resolve)
 }]
 
 const router = new VueRouter({

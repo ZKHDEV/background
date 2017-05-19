@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: process.env.NODE_ENV === 'production' ? './dist/' : '/dist/',
-    filename: 'build.js'
+    filename: process.env.NODE_ENV === 'production' ? '[name].js?[chunkhash]' : '[name].js'
   },
   module: {
     rules: [

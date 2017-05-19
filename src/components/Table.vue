@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import Add from './Add.vue'
-import Edit from './Edit.vue'
 export default {
   data() {
     return {
@@ -127,8 +125,8 @@ export default {
   },
 
   components: {
-    'v-add': Add,
-    'v-edit': Edit
+    'v-add': resolve => require(['./Add.vue'], resolve),
+    'v-edit': resolve => require(['./Edit.vue'], resolve)
   }
 }
 </script>

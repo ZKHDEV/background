@@ -48,7 +48,7 @@ export default {
 <style lang="scss" scoped>
 $headerHeight: 50px;
 $themeColor: #20A0FF;
-$boxShadow: 0 0 10px 1px rgba(#000000, 0.1);
+$boxShadow: 0 0 10px 1px rgba(#000000, 0.3);
 header {
     z-index: 999;
     position: absolute;

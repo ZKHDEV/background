@@ -15,8 +15,6 @@
 </template>
 
 <script>
-import Sidebar from "./components/Sidebar.vue"
-import Header from "./components/Header.vue"
 export default {
   name: 'app',
   data() {
@@ -31,8 +29,8 @@ export default {
     }
   },
   components: {
-    'v-sidebar': Sidebar,
-    'v-header': Header
+    'v-sidebar': resolve => require(['./components/Sidebar.vue'], resolve),
+    'v-header': resolve => require(['./components/Header.vue'], resolve)
   }
 }
 </script>
