@@ -4,7 +4,7 @@
             <v-sidebar></v-sidebar>
         </div>
         <div class="right" :class="{ collapse: isCollapse }">
-            <v-header :title="title" @toggleMenu="toggleMenu"></v-header>
+            <v-header @toggleMenu="toggleMenu"></v-header>
             <div class="container">
                 <div class="card">
                     <router-view></router-view>
@@ -18,7 +18,6 @@
 export default {
     data() {
         return {
-            title: '主页',
             isCollapse: true
         }
     },

@@ -11,7 +11,9 @@
       <el-button type="primary" @click="handleAdd">添加</el-button>
       <el-button type="danger" :disabled="disDelete" @click="handleDeleteSelection">删除所选</el-button>
     </div>
-    <el-table :data="datas" border stripe>
+    <el-table :data="datas" border stripe v-loading="loading" @selection-change="handleSelectionChange">
+      <el-table-column type="selection" width="55">
+      </el-table-column>
       <el-table-column prop="date" label="日期" width="150">
       </el-table-column>
       <el-table-column prop="name" label="姓名" width="120">

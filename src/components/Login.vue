@@ -1,5 +1,5 @@
 <template>
-    <div class="login-container">
+    <div class="login-container" v-title="'登录'">
         <div class="login-card">
             <p class="login-title">后台管理系统登录</p>
             <el-form ref="form" :model="form" :rules="rules">
@@ -75,7 +75,7 @@
 
 <style lang="scss">
 $themeColor: #20A0FF;
-$boxShadow: 20px 20px 10px 10px rgba(#000000, 0.3);
+$boxShadow: 20px 20px 2px 10px rgba(#000000, 0.3);
 .login-container {
     position: absolute;
     top: 0;

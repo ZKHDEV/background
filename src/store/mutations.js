@@ -7,6 +7,10 @@ export default {
     },
     [types.LOGOUT] (state) {
         window.localStorage.removeItem('back_token');
-        state.token = null;
+        state.token = '';
+    },
+    [types.TITLE] (state, title) {
+        window.document.title = title + ' - 后台管理系统';
+        state.title = title;
     }
 }

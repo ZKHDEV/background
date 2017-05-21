@@ -30,14 +30,6 @@ const routes = [
     }
   ]
 },
-// {
-//   path: '/',
-//   name: '/',
-//   meta: {
-//     auth: true
-//   },
-//   component: resolve => require(['./components/Table.vue'], resolve)
-// },
 {
   path: '/login',
   name: 'login',

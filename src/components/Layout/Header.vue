@@ -24,7 +24,7 @@
                 </el-dropdown>
             </li>
             <li>
-                <el-button type="primary" class="menu-btn">
+                <el-button type="primary" class="menu-btn" @click="logout">
                     <i class="fa fa-sign-out"></i>
                 </el-button>
             </li>
@@ -33,13 +33,22 @@
 </template>
 
 <script>
+import types from '../../store/mutation-types'
 export default {
-    props: {
-        title: String
+    computed: {
+        title() {
+            return this.$store.state.title;
+        }
     },
     methods: {
         toggleMenu() {
             this.$emit('toggleMenu');
+        },
+        logout() {
+            this.$store.commit(types.LOGOUT);
+            this.$router.push({
+                name: 'login'
+            })
         }
     }
 }

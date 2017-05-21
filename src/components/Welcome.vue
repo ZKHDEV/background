@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-container">
+  <div class="welcome-container" v-title="'主页'">
       <h1>欢迎使用后台管理系统</h1>
   </div>
 </template>
