@@ -3,6 +3,7 @@
     <div class="table-operation">      
       <el-button type="primary" @click="handleAdd">添加</el-button>
       <el-button type="danger" :disabled="disDelete" @click="handleDeleteSelection">删除所选</el-button>
+      <router-link :to="{name:'user'}"><el-button type="text">跳转</el-button></router-link>
     </div>
     <el-table ref="multipleTable" :data="datas" border tooltip-effect="dark" v-loading="loading" style="width: 100%" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55">

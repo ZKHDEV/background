@@ -1,19 +1,20 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import router from './router'
 import App from './App.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import 'font-awesome/css/font-awesome.min.css'
 import Mock from './mock/mock'
+import store from './store/store'
 
-import axios from 'axios'
+import axios from './http'
 // 解决IE下promise兼容性问题
 import Promise from 'promise-polyfill';
 if (!window.Promise) {
   window.Promise = Promise;
 }
 
-Vue.use(VueRouter)
+
 Vue.use(ElementUI)
 
 Vue.prototype.$http = axios
@@ -26,21 +27,10 @@ Vue.directive('title', {
   }
 })
 
-const routes = [{
-  path: '/',
-  component: resolve => require(['./components/Table.vue'], resolve)
-},
-{
-  path: '/table',
-  component: resolve => require(['./components/Table.vue'], resolve)
-}]
-
-const router = new VueRouter({
-  routes
-})
 
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 })
