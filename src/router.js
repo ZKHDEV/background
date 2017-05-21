@@ -8,20 +8,25 @@ Vue.use(VueRouter)
 const routes = [
 {
   path: '/',
-  name: '/',
   meta: {
     auth: true
   },
-  component: resolve => require(['./components/Admin.vue'], resolve),
+  component: resolve => require(['./components/Layout/Admin.vue'], resolve),
   children: [
     {
       path: '',
-      component: resolve => require(['./components/Table.vue'], resolve)
+      name: '/',
+      component: resolve => require(['./components/Welcome.vue'], resolve)
     },
     {
       path: 'user',
       name: 'user',
-      component: resolve => require(['./components/Table.vue'], resolve)
+      component: resolve => require(['./components/Table/Table.vue'], resolve)
+    },
+    {
+      path: 'setting',
+      name: 'setting',
+      component: resolve => require(['./components/Setting.vue'], resolve)
     }
   ]
 },

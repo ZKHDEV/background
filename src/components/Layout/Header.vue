@@ -12,13 +12,13 @@
                     </el-button>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>
-                            <router-link to="/hello">我的账号</router-link>
+                            <router-link to="/setting">我的账号</router-link>
                         </el-dropdown-item>
                         <el-dropdown-item>
-                            <router-link to="/hello">未读消息</router-link>
+                            <router-link to="/setting">未读消息</router-link>
                         </el-dropdown-item>
                         <el-dropdown-item>
-                            <router-link to="/hello">系统设置</router-link>
+                            <router-link to="/setting">系统设置</router-link>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>

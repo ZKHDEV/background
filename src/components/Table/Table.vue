@@ -1,24 +1,27 @@
 <template>
   <div class="table-container" v-title="'用户管理'">
-    <div class="table-operation">      
+    <div class="bread-nav">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ name: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
+    <div class="table-operation">
       <el-button type="primary" @click="handleAdd">添加</el-button>
       <el-button type="danger" :disabled="disDelete" @click="handleDeleteSelection">删除所选</el-button>
-      <router-link :to="{name:'user'}"><el-button type="text">跳转</el-button></router-link>
     </div>
-    <el-table ref="multipleTable" :data="datas" border tooltip-effect="dark" v-loading="loading" style="width: 100%" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55">
-      </el-table-column>
-      <el-table-column label="日期" width="120">
-        <template scope="scope">{{ scope.row.date }}</template>
+    <el-table :data="datas" border stripe>
+      <el-table-column prop="date" label="日期" width="150">
       </el-table-column>
       <el-table-column prop="name" label="姓名" width="120">
       </el-table-column>
-      <el-table-column prop="address" label="地址" show-overflow-tooltip>
+      <el-table-column prop="address" label="省份" show-overflow-tooltip>
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column fixed="right" label="操作" width="140">
         <template scope="scope">
-          <el-button size="small" type="primary" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+          <el-button @click="handleEdit(scope.$index, scope.row)" size="small">编辑</el-button>
+          <el-button @click="handleDelete(scope.$index, scope.row)" type="danger" size="small">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -29,7 +32,7 @@
   
     <v-add ref="add" @submitForm="afterAdd"></v-add>
     <v-edit ref="edit" @submitForm="afterEdit"></v-edit>
-
+  
   </div>
 </template>
 
@@ -133,10 +136,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.table-operation{
+.table-operation {
   padding: 10px;
 }
-.table-pagination{
+
+.table-pagination {
   padding: 10px;
   text-align: center;
 }

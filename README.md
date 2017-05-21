@@ -1,6 +1,6 @@
-# background
+# SPA后台管理系统
 
-> A Vue.js project
+> 一个基于Vue2.0和Element-ui的SPA后台管理系统
 
 ## Build Setup
 
@@ -14,5 +14,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

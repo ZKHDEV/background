@@ -10,8 +10,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
   overflow: hidden;
+}
+.bread-nav{
+  padding: 20px 16px 10px;
 }
 </style>

@@ -1,17 +1,17 @@
 <template>
     <div class="sidebar">
-        <div class="sidebar-header">
-            <i class="fa fa-briefcase"></i> 后台管理系统</div>
+        <router-link :to="{name:'/'}"><div class="sidebar-header">
+            <i class="fa fa-briefcase"></i> 后台管理系统</div></router-link>
         <el-menu mode="vertical" default-active="1" class="el-menu-vertical-demo">
             <el-menu-item-group title="分组一">
                 <el-submenu index="1">
                     <template slot="title">
                         <i class="el-icon-message"></i>导航一</template>
-                    <router-link to="/">
+                    <router-link to="/user">
                         <el-menu-item index="1">
                             <i class="el-icon-message"></i>导航一</el-menu-item>
                     </router-link>
-                    <router-link to="/table">
+                    <router-link to="/setting">
                         <el-menu-item index="2">
                             <i class="el-icon-message"></i>导航二</el-menu-item>
                     </router-link>
