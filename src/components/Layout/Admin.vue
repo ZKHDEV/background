@@ -6,9 +6,7 @@
         <div class="right" :class="{ collapse: isCollapse }">
             <v-header @toggleMenu="toggleMenu"></v-header>
             <div class="container">
-                <div class="card">
-                    <router-view></router-view>
-                </div>
+                <router-view></router-view>
             </div>
         </div>
     </div>
@@ -79,9 +77,13 @@ $boxShadow: 0 0 10px 1px rgba(#000000, 0.1);
   }
 }
 
+
+</style>
+
+<style lang="scss">
 .card {
   margin: 10px;
-  box-shadow: $boxShadow;
+  box-shadow: 0 0 10px 1px rgba(#000000, 0.1);
   background-color: #FFFFFF;
 }
 </style>

@@ -14,7 +14,4 @@ export default {
 #app {
   overflow: hidden;
 }
-.bread-nav{
-  padding: 20px 16px 10px;
-}
 </style>

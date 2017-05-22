@@ -48,9 +48,8 @@ export default {
             this.$refs.form.validate((valid) => {
                 if (valid) {
                     // 格式化日期
-                    const srcDate = new Date(this.user.date),
-                        data = {
-                            date: srcDate.getFullYear() + '-' + (srcDate.getMonth() + 1) + '-' + srcDate.getDate(),
+                    const formdata = {
+                            date: this.formatDate(this.user.date),
                             name: this.user.name,
                             address: this.user.address
                         };
@@ -78,6 +77,9 @@ export default {
                     return false;
                 }
             });
+        },
+        formatDate(date) {
+            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
         }
     }
 }
