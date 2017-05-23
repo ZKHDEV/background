@@ -4,6 +4,7 @@
       <div class="table-operation">
         <div class="table-btn-group">
           <el-button type="success" @click="handleAdd" icon="plus">添加</el-button>
+          <el-button type="primary" :disabled="datas.length<=0" @click="handleExport">导出</el-button>          
           <el-button type="danger" :disabled="disDelete" @click="handleDeleteSelection">批量删除</el-button>
           <el-button type="text" :disabled="disDelete" @click="handleReverseSelection">反选</el-button>
         </div>
@@ -51,6 +52,7 @@
 </template>
 
 <script>
+import {toDateString,exportCsv} from '../../static/js/utils.js'
 export default {
   data() {
     return {
@@ -156,8 +158,8 @@ export default {
       } else {
         this.filter = {
           address: this.search.address,
-          start: this.search.daterange ? this.formatDate(this.search.daterange[0]) : '',
-          end: this.search.daterange ? this.formatDate(this.search.daterange[1]) : ''
+          start: this.search.daterange ? toDateString(this.search.daterange[0]) : '',
+          end: this.search.daterange ? toDateString(this.search.daterange[1]) : ''
         }
       }
       this.getData();
@@ -195,15 +197,20 @@ export default {
         this.datas = [];
       });
     },
-    formatDate(date) {
-      return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    handleExport() {
+      exportCsv({
+        name: '导出数据',
+        title: ['日期', '姓名', '地址'],
+        columns: ['date', 'name', 'address'],
+        data: this.datas
+      })
     }
   },
 
   created() {
-    this.$http.get('/api/user').then((response) => {
-      this.datas = response.data.datas;
-    });
+    // this.$http.get('/api/user').then((response) => {
+    //   this.datas = response.data.datas;
+    // });
   },
 
   components: {

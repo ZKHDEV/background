@@ -73,7 +73,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $themeColor: #20A0FF;
 $boxShadow: 20px 20px 2px 10px rgba(#000000, 0.3);
 .login-container {

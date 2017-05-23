@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {toDateString} from '../../static/js/utils.js'
 export default {
     data() {
         return {
@@ -50,7 +51,7 @@ export default {
                     // 格式化日期
                     const srcDate = new Date(this.user.date),
                         data = {
-                            date: srcDate.getFullYear() + '-' + (srcDate.getMonth() + 1) + '-' + srcDate.getDate(),
+                            date: toDateString(srcDate),
                             name: this.user.name,
                             address: this.user.address
                         };

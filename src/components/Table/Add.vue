@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {toDateString} from '../../static/js/utils.js'
 export default {
     data() {
         return {
@@ -49,7 +50,7 @@ export default {
                 if (valid) {
                     // 格式化日期
                     const formdata = {
-                            date: this.formatDate(this.user.date),
+                            date: toDateString(this.user.date),
                             name: this.user.name,
                             address: this.user.address
                         };
@@ -77,9 +78,6 @@ export default {
                     return false;
                 }
             });
-        },
-        formatDate(date) {
-            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
         }
     }
 }
