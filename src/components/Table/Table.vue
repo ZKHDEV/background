@@ -69,17 +69,7 @@ export default {
       multipleSelection: [],
       currentPage: 1,
       disDelete: true,
-      loading: false,
-      form: {
-        title: '',
-        visible: false,
-        action: '',
-        data: {
-          date: new Date(),
-          name: '',
-          address: ''
-        }
-      }
+      loading: false
     }
   },
 

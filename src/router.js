@@ -27,6 +27,11 @@ const routes = [
       path: 'setting',
       name: 'setting',
       component: resolve => require(['./components/Setting.vue'], resolve)
+    },
+    {
+      path: 'chart',
+      name: 'chart',
+      component: resolve => require(['./components/Chart/Chart.vue'], resolve)
     }
   ]
 },
