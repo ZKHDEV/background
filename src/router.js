@@ -32,6 +32,11 @@ const routes = [
       path: 'chart',
       name: 'chart',
       component: resolve => require(['./components/Chart/Chart.vue'], resolve)
+    },
+    {
+      path: 'upload',
+      name: 'upload',
+      component: resolve => require(['./components/Upload/Upload.vue'], resolve)
     }
   ]
 },

@@ -71,6 +71,7 @@ $boxShadow: 0 0 10px 1px rgba(#000000, 0.1);
     bottom: 0;
     left: 0;
     right: 0;
+    padding: 10px;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #E7EBEE;
@@ -82,7 +83,8 @@ $boxShadow: 0 0 10px 1px rgba(#000000, 0.1);
 
 <style lang="scss">
 .card {
-    margin: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
     box-shadow: 0 0 10px 1px rgba(#000000, 0.1);
     background-color: #FFFFFF;
 }

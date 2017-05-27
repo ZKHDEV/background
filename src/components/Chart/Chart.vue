@@ -121,15 +121,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$themeColor: #20A0FF;
-.chart-container {
-    text-align: center;
-    padding: 10px;
-}
 
-.card {
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 16px;
-}
 </style>

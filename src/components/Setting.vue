@@ -113,6 +113,6 @@ export default {
 
 <style lang="scss" scoped>
 .setting-card {
-    padding: 50px 20px;
+    padding: 40px 10px;
 }
 </style>

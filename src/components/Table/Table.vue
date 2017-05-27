@@ -22,7 +22,7 @@
         </el-form>
       </div>
     </div>
-    <div class="card">
+    <div class="card table-card">
       <el-table ref="dataTable" :data="datas" border stripe v-loading="loading" @sort-change="sortChange" @selection-change="handleSelectionChange" :default-sort="{prop: 'name', order: 'ascending'}">
         <el-table-column type="selection" width="55">
         </el-table-column>
@@ -212,14 +212,19 @@ export default {
 
 <style lang="scss" scoped>
 .table-operation {
-  padding: 10px 22px;
+  padding: 0 12px;
 }
 
 .table-btn-group {
   float: right;
 }
 
+.table-card{
+  padding: 0;
+}
+
 .table-pagination {
+  border: 0;
   padding: 10px;
   text-align: right;
 }

@@ -22,9 +22,9 @@
                     <el-menu-item index="3">
                         <i class="el-icon-message"></i>图表</el-menu-item>
                 </router-link>
-                <router-link to="/">
+                <router-link to="/upload">
                     <el-menu-item index="4">
-                        <i class="el-icon-message"></i>导航二</el-menu-item>
+                        <i class="el-icon-message"></i>上传</el-menu-item>
                 </router-link>
             </el-menu-item-group>
         </el-menu>
