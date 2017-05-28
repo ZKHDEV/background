@@ -17,7 +17,7 @@ if (!window.Promise) {
 
 Vue.use(ElementUI)
 Vue.prototype.$http = axios
-// Mock.mockData()
+Mock.mockData()
 
 // 页面标题命令
 Vue.directive('title', {
