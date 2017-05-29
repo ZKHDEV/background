@@ -46,8 +46,8 @@ export default {
             fileName: '',
             uploader: null,
             cropVisible: false,
-            imgKey: '',
-            srcImg: '',
+            imgKey: {},
+            srcImg: {},
             crop: null,
             cropper: null
         }
@@ -66,11 +66,11 @@ export default {
             if (this.crop) {
                 imgLink = Qiniu.imageMogr2({
                     crop: '!' + this.crop.width + 'x' + this.crop.height + 'a' + this.crop.x + 'a' + this.crop.y
-                }, this.imgKey);
+                }, this.imgKey[this.fileName]);
                 // 清空裁剪参数，避免影响后续裁剪
                 this.crop = null;
             } else {
-                imgLink = this.srcImg;
+                imgLink = this.srcImg[this.fileName];
             }
 
             console.log(imgLink);
@@ -80,7 +80,7 @@ export default {
         handleCrop() {
             this.cropVisible = true;
             if (this.cropper) {
-                this.cropper.replace(this.srcImg);
+                this.cropper.replace(this.srcImg[this.fileName]);
             } else {
                 this.$nextTick(() => {
                     const cropContainer = document.getElementById('cropStudio'),
@@ -97,7 +97,7 @@ export default {
                             }
                         }
                     });
-                    this.cropper.replace(this.srcImg);
+                    this.cropper.replace(this.srcImg[this.fileName]);
                 })
             }
         }
@@ -117,8 +117,8 @@ export default {
             // 在初始化时，uptoken, uptoken_url, uptoken_func 三个参数中必须有一个被设置
             // 切如果提供了多个，其优先级为 uptoken > uptoken_url > uptoken_func
             // 其中 uptoken 是直接提供上传凭证，uptoken_url 是提供了获取上传凭证的地址，如果需要定制获取 uptoken 的过程则可以设置 uptoken_func
-            uptoken: 'pjT84UdnPNrg5oQ-tAU9fn2DdOr434zKjevPyZxV:CBjxqkXfKm19U78I3ubcLC-j7t8=:eyJzY29wZSI6InpvbmUiLCJkZWFkbGluZSI6MTQ5NjA0Mjg1NX0=', // uptoken 是上传凭证，由其他程序生成
-            // uptoken_url: '/api/uptoken',         // Ajax 请求 uptoken 的 Url，**强烈建议设置**（服务端提供）
+            // uptoken: '', // uptoken 是上传凭证，由其他程序生成
+            uptoken_url: '/api/uptoken',         // Ajax 请求 uptoken 的 Url，**强烈建议设置**（服务端提供）
             // uptoken_func: function(file){    // 在需要获取 uptoken 时，该方法会被调用
             //    // do something
             //    return uptoken;
@@ -191,8 +191,9 @@ export default {
                         res = JSON.parse(info),
                         sourceLink = '//' + domain + '/' + res.key; //获取上传成功后的文件的Url
 
-                    this.imgKey = res.key;
-                    this.srcImg = sourceLink;
+                    this.fileName = file.name;
+                    this.$set(this.imgKey,file.name,res.key);
+                    this.$set(this.srcImg,file.name,sourceLink);
                     // 裁剪处理
                     this.handleCrop();
                 },
@@ -209,8 +210,10 @@ export default {
                             break;
                         }
                         case -602: {
-                            msg = '文件已存在';
-                            break;
+                            // 重复上传，直接操作缓存
+                            this.fileName = err.file.name;
+                            this.handleCrop();
+                            return;
                         }
                         default: {
                             msg = '上传失败，请重试';
