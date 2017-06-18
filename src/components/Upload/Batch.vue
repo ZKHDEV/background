@@ -50,6 +50,6 @@ export default {
 }
 </script>
 
-<style lang="scss" coped>
+<style lang="scss" scoped>
 
 </style>

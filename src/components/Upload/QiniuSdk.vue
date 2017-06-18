@@ -171,7 +171,7 @@ export default {
 }
 </script>
 
-<style lang="scss" coped>
+<style lang="scss" scoped>
 .file-span {
     display: inline-block;
     max-width: calc(100% - 210px);
