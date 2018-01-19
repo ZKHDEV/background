@@ -74,8 +74,7 @@
 </script>
 
 <style lang="scss" scoped>
-$themeColor: #20A0FF;
-$boxShadow: 20px 20px 2px 10px rgba(#000000, 0.3);
+@import '../static/scss/variables.scss';
 .login-container {
     position: absolute;
     top: 0;

@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$themeColor: #20A0FF;
+@import '../static/scss/variables.scss';
 .welcome-card{
     padding: 50px 0;
     text-align: center;
